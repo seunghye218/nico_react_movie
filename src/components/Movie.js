@@ -9,7 +9,10 @@ export default function Movie({ id, movie }) {
 			<h2>
 				<Link to={`/movie/${id}`}>{movie.title}</Link>
 			</h2>
-			<p>{movie.summary}</p>
+			<p>{movie.summary.length < 235 ?
+				movie.summary :
+				`${movie.summary.slice(0, 235)}...`}
+			</p>
 			<ul>
 				{movie.genres && movie.genres.map((g) =>
 					<li key={g}>{g}</li>)
